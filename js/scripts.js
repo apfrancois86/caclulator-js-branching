@@ -14,62 +14,55 @@ var divide = function(number1, number2) {
 var modulo = function(number1, number2) {
 	return number1 % number2;
 };
-
+//  remove floating zeros from frontend content to display function
+	var display = function(calculation) {
+		return Number(calculation.toFixed(8));
+};
 // Everything below this line is user interface (or front-end) logic:
 
 $(document).ready(function(){
-
-//Calculator
 // User input numbers
 	//Add Function
 	$("form#add").submit(function(event){
 		event.preventDefault();
 		var number1 = parseFloat($("#add1").val());
 		var number2 = parseFloat($("#add2").val());
-
-	//  remove floating zeros from frontend content to display function
-		var display = function(calculation) {
-			return Number(calculation.toFixed(8));
-	};
-	$("#output").text(display(add(number1,number2)));
-	//frontend display message
-	// alert("The sum of " + number1 + " and " + number2 + " is " + display(add(number1, number2)));
-
+	$("#outputAddition").text(display(add(number1,number2)));
 	});
+
 //Subtract function
 	$("form#subtract").submit(function(event){
 		event.preventDefault();
 		var number1 = parseFloat($("#subtract1").val());
 		var number2 = parseFloat($("#subtract2").val());
-
-	//  remove floating zeros from frontend content to display function
-		var display = function(calculation) {
-			return Number(calculation.toFixed(8));
-	};
-	$("#output").text(display(subtract(number1,number2)));
-	//frontend display message
-	// alert("The sum of " + number1 + " and " + number2 + " is " + display(add(number1, number2)));
-
+	$("#outputSubtraction").text(display(subtract(number1,number2)));
 	});
+//Multiply function
+	$("form#multiply").submit(function(event){
+		event.preventDefault();
+		var number1 = parseFloat($("#multiply1").val());
+		var number2 = parseFloat($("#multiply2").val());
+	$("#outputMultiplication").text(display(multiply(number1,number2)));
+	});
+//Divide function
+	$("form#divide").submit(function(event){
+		event.preventDefault();
+		var number1 = parseFloat($("#divide1").val());
+		var number2 = parseFloat($("#divide2").val());
+	$("#outputDivision").text(display(divide(number1,number2)));
+	});
+//Modulo function
+	$("form#modulo").submit(function(event){
+		event.preventDefault();
+		var number1 = parseFloat($("#modulo1").val());
+		var number2 = parseFloat($("#modulo2").val());
+	$("#outputModulo").text(display(modulo(number1,number2)));
+	});
+
 });
 
 
-// backend basic math operations
-var add = function(number1, number2) {
-	return number1 + number2;
-};
-var subtract = function(number1, number2) {
-  return number1 - number2;
-}
-var multiply = function(number1, number2) {
-  return number1 * number2;
-};
-var divide = function(number1, number2) {
-  return number1 / number2;
-};
-var modulo = function(number1, number2) {
-	return number1 % number2;
-};
+
 
 
 
