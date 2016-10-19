@@ -21,6 +21,7 @@ $(document).ready(function(){
 
 //Calculator
 // User input numbers
+	//Add Function
 	$("form#add").submit(function(event){
 		event.preventDefault();
 		var number1 = parseFloat($("#add1").val());
@@ -35,7 +36,21 @@ $(document).ready(function(){
 	// alert("The sum of " + number1 + " and " + number2 + " is " + display(add(number1, number2)));
 
 	});
+//Subtract function
+	$("form#subtract").submit(function(event){
+		event.preventDefault();
+		var number1 = parseFloat($("#subtract1").val());
+		var number2 = parseFloat($("#subtract2").val());
 
+	//  remove floating zeros from frontend content to display function
+		var display = function(calculation) {
+			return Number(calculation.toFixed(8));
+	};
+	$("#output").text(display(subtract(number1,number2)));
+	//frontend display message
+	// alert("The sum of " + number1 + " and " + number2 + " is " + display(add(number1, number2)));
+
+	});
 });
 
 
