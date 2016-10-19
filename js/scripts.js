@@ -1,25 +1,70 @@
+// backend basic math operations
+var add = function(number1, number2) {
+	return number1 + number2;
+};
+var subtract = function(number1, number2) {
+  return number1 - number2;
+}
+var multiply = function(number1, number2) {
+  return number1 * number2;
+};
+var divide = function(number1, number2) {
+  return number1 / number2;
+};
+var modulo = function(number1, number2) {
+	return number1 % number2;
+};
+
+// Everything below this line is user interface (or front-end) logic:
+
+$(document).ready(function(){
+
 //Calculator
 // User input numbers
-// var number1 = parseFloat(prompt("Enter a number:"));
-// var number2 = parseFloat(prompt("Enter another number:"));
+	$("form#add").submit(function(event){
+		event.preventDefault();
+		var number1 = parseFloat($("#add1").val());
+		var number2 = parseFloat($("#add2").val());
+
+	//  remove floating zeros from frontend content to display function
+		var display = function(calculation) {
+			return Number(calculation.toFixed(8));
+	};
+	$("#output").text(display(add(number1,number2)));
+	//frontend display message
+	// alert("The sum of " + number1 + " and " + number2 + " is " + display(add(number1, number2)));
+
+	});
+
+});
 
 
 // backend basic math operations
-// var add = function(number1, number2) {
-// 	return number1 + number2;
-// };
-// var subtract = function(number1, number2) {
-//   return number1 - number2;
-// }
-// var multiply = function(number1, number2) {
-//   return number1 * number2;
-// };
-// var divide = function(number1, number2) {
-//   return number1 / number2;
-// };
-// var modulo = function(number1, number2) {
-// 	return number1 % number2;
-// };
+var add = function(number1, number2) {
+	return number1 + number2;
+};
+var subtract = function(number1, number2) {
+  return number1 - number2;
+}
+var multiply = function(number1, number2) {
+  return number1 * number2;
+};
+var divide = function(number1, number2) {
+  return number1 / number2;
+};
+var modulo = function(number1, number2) {
+	return number1 % number2;
+};
+
+
+
+
+
+
+
+
+
+
 
 //custom math functions
 // var heightInInches = function(heightFeet, heightInches) {
@@ -30,20 +75,6 @@
 // };
 
 
-//  remove floating zeros from frontend content to display function
-var display = function(calculation) {
-	return Number(calculation.toFixed(8));
-};
-
-// var sum = Number(add(number1, number2).toFixed(8));
-// var difference = Number(subtract(number1, number2).toFixed(8));
-// var product = Number(multiply(number1, number2).toFixed(8));
-// var quotient = Number(divide(number1, number2).toFixed(8));
-// var remainder = Number(modulo(number1, number2).toFixed(8));
-
-//frontend display message
-
-// alert("The sum of " + number1 + " and " + number2 + " is " + display(add(number1, number2)));
 //
 // alert("The difference between " + number1 + " and " + number2 + " is " + display(subtract(number1, number2)));
 //
@@ -60,30 +91,28 @@ var display = function(calculation) {
 // var tempF = parseFloat(prompt("What temperature do you want to convert [F-C]"));
 //
 // var tempC = parseFloat(prompt("What temperature do you want to convert [C-F]"));
-//
-// var fahrToCels = function(temp) {
-// 	return (temp - 32) * (5 / 9);
-// };
-//
-// var celsToFahr = function(temp) {
-// 	return (temp / (5 / 9) + 32);
-// };
+
+var fahrToCels = function(temp) {
+	return (temp - 32) * (5 / 9);
+};
+
+var celsToFahr = function(temp) {
+	return (temp / (5 / 9) + 32);
+};
 //
 // alert(display(fahrToCels(tempF)));
 // alert(display(celsToFahr(tempC)));
 
-var gallons = parseFloat(prompt("How many gallons?"));
+// var gallons = parseFloat(prompt("How many gallons?"));
 
 var galToLit = function(gallons) {
 	return gallons / .26417;
 };
 
-alert(display(galToLit(gallons)));
+// alert(display(galToLit(gallons)));
 
-var liters = parseFloat(prompt("How many liters?"));
+// var liters = parseFloat(prompt("How many liters?"));
 
 var litToGal = function(liters) {
 	return liters * .26417;
 }
-
-alert(display(litToGal(liters)));
