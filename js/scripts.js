@@ -23,41 +23,26 @@ var modulo = function(number1, number2) {
 $(document).ready(function(){
 // User input numbers
 	//Add Function
-	$("form#add").submit(function(event){
+	$("form#input").submit(function(event){
 		event.preventDefault();
-		var number1 = parseFloat($("#add1").val());
-		var number2 = parseFloat($("#add2").val());
-	$("#outputAddition").text(display(add(number1,number2)));
+		var number1 = parseFloat($("#input1").val());
+		var number2 = parseFloat($("#input2").val());
+		var operator = $("input:radio[name=operator]:checked").val();
+		var result;
+		if (operator === "add") {
+			result = add(number1, number2);
+		} else if (operator === "subtract") {
+			result = subtract(number1, number2);
+		} else if (operator === "multiply") {
+			result = multiply(number1, number2);
+		} else if (operator === "divide") {
+			result = divide(number1, number2);
+		} else if (operator === "modulo") {
+			result = modulo(number1, number2);
+		}
+	$("#output").text(display(result));
 	});
 
-//Subtract function
-	$("form#subtract").submit(function(event){
-		event.preventDefault();
-		var number1 = parseFloat($("#subtract1").val());
-		var number2 = parseFloat($("#subtract2").val());
-	$("#outputSubtraction").text(display(subtract(number1,number2)));
-	});
-//Multiply function
-	$("form#multiply").submit(function(event){
-		event.preventDefault();
-		var number1 = parseFloat($("#multiply1").val());
-		var number2 = parseFloat($("#multiply2").val());
-	$("#outputMultiplication").text(display(multiply(number1,number2)));
-	});
-//Divide function
-	$("form#divide").submit(function(event){
-		event.preventDefault();
-		var number1 = parseFloat($("#divide1").val());
-		var number2 = parseFloat($("#divide2").val());
-	$("#outputDivision").text(display(divide(number1,number2)));
-	});
-//Modulo function
-	$("form#modulo").submit(function(event){
-		event.preventDefault();
-		var number1 = parseFloat($("#modulo1").val());
-		var number2 = parseFloat($("#modulo2").val());
-	$("#outputModulo").text(display(modulo(number1,number2)));
-	});
 
 });
 
